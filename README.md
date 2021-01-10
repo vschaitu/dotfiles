@@ -1,6 +1,6 @@
 ##  Dotfiles
 
-My dotfiles, an incremental effort to get best configurations that I can have to ease my life ? We will know in sometime..2021 
+My dotfiles, an incremental effort to get best configurations that I can have to ease my life ? We will know in sometime.
 
 ### Inspiration
 
