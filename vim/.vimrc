@@ -1,39 +1,25 @@
-syntax on                            " Syntax on 
+" VIMRC 
+" 
+" This file contains the minimal settings to set the foundation, with the
+" majority of the configuration and settings living in files spread between
+" vim/rcfiles and vim/rcplugins
 
-set number
-set hidden                           " Allow buffers change without saving them
-set incsearch
-set tabstop=4
-set softtabstop=4                 
-set shiftwidth=4
-"set textwidth=80
-"set colorcolumn=+1
-set background=dark
+set nocompatible
 
-command! Q q
-command! Qall qall
-command! QA qall
-command! E e
-command! W w
-command! Wq wq
-
+" Need to set the leader before defining any leader mappings
 let mapleader = "\<Space>"
 
-imap jj <esc>
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.vim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
 
-map <F7> :echo 'Current time is ' . strftime('%c')<cr>
-map <F3> <esc>:echo "EXIT" <bar> :q <cr>
+call plug#begin('~/.vim/plugged')
+call s:SourceConfigFilesIn('rcplugins')
+call plug#end()
 
-nmap <leader>v :vsplit<cr>
-nmap <leader>vr :tabedit $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
-
-nmap <up> <nop>
-nmap <down> <nop>
-nmap <left> <nop>
-nmap <right> <nop>
-
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+call s:SourceConfigFilesIn('rcfiles')

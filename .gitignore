@@ -1,5 +1,9 @@
 .DS_Store
 
+#avoid vim plug load files
+vim/.vim/autoload
+vim/.vim/plugged
+
 # Swap
 [._]*.s[a-v][a-z]
 !*.svg  # comment out if you don't need vector files
