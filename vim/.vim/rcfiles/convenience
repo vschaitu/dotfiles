@@ -1,8 +1,13 @@
-" Convience - configs & mappings to smooth out rough edges and make vim feel like home
+" ------------------------------------------------------------------------------
+" Convience - configs & mappings make vim feel like home
+" ------------------------------------------------------------------------------
 
 " Move between wrapped lines, rather than jumping over wrapped segments
 nmap j gj
 nmap k gk
+
+" Quick escape from Insert mode by pressing 'jj'
+imap jj <esc>
 
 " Use C-Space to Esc out of any mode
 "nnoremap <C-Space> <Esc>:noh<CR>
@@ -16,12 +21,11 @@ nmap k gk
 "onoremap <C-@> <Esc>
 "cnoremap <C-@> <C-c>
 "inoremap <C-@> <Esc>
-imap jj <esc>
 
 " Quick sourcing of the current file, allowing for quick vimrc testing
-"nnoremap <leader>so :source %<cr>
-nmap <leader>vr :tabedit $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
+nnoremap <leader>so :source %<cr>
+"nmap <leader>vr :tabedit $MYVIMRC<cr>
+"nmap <leader>so :source $MYVIMRC<cr>
 
 "nnoremap <leader>df :Files ~/code/dotfiles<cr>
 "nnoremap <leader>; :
@@ -43,6 +47,13 @@ command! Wq wq
 nnoremap 0 ^
 nnoremap ^ 0
 
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" ------------------------------------------------------------------------------
+" Enter last cursor position
+" ------------------------------------------------------------------------------
+
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.
@@ -54,14 +65,15 @@ augroup vimrcEx
     \ endif
 augroup END
 
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
+" ------------------------------------------------------------------------------
 " Function key mapping
+" ------------------------------------------------------------------------------
 map <F7> :echo 'Current time is ' . strftime('%c')<cr>
 map <F3> <esc>:echo "EXIT" <bar> :q <cr>
 
+" ------------------------------------------------------------------------------
 " Do not map arrow keys
+" ------------------------------------------------------------------------------
 nmap <up> <nop>
 nmap <down> <nop>
 nmap <left> <nop>
@@ -70,5 +82,23 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+" ------------------------------------------------------------------------------
+" Tab & Window related configurations
+" ------------------------------------------------------------------------------
+
+command! TO tabonly|only
+
+nnoremap <leader>w1 1gt
+nnoremap <leader>w2 2gt
+nnoremap <leader>w3 3gt
+nnoremap <leader>w4 4gt
+nnoremap <leader>w5 5gt
+nnoremap <leader>w6 6gt
+nnoremap <leader>w9 :tablast<cr>
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+" autocmd VimResized * GoldenRatioResize
 
 " vim:ft=vim
