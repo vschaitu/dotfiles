@@ -38,3 +38,43 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Git
+compdef g=git
+function g {
+  if [[ $# -gt 0 ]]; then
+    git "$@"
+  else
+    git status --short --branch
+  fi
+}
+
+# Tmux 
+_tmux_orientation() {
+  width=$(tmux display -p '#{pane_width}')
+  height=$(tmux display -p '#{pane_height}')
+  normalized_height=$( echo "$height * 2.2" | bc | xargs printf "%.0f")
+
+  if (( normalized_height > width )); then
+    echo 'portrait'
+  else
+    echo 'landscape'
+  fi
+}
+
+tmux-smart-pane() {
+  [[ $(_tmux_orientation) = 'portrait' ]] && orient='-v' || orient='-h'
+  eval "tmux split-window $orient $@"
+}
+
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
+
+ensure_tmux_is_running

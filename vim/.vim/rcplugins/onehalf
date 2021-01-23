@@ -1,0 +1,5 @@
+" oneHalf
+
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+" vim:ft=vim

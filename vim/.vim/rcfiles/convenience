@@ -9,6 +9,9 @@ nmap k gk
 " Quick escape from Insert mode by pressing 'jj'
 imap jj <esc>
 
+" Q for Ex mode is useless. This will run the macro in q register
+nnoremap Q @q
+
 " Use C-Space to Esc out of any mode
 "nnoremap <C-Space> <Esc>:noh<CR>
 "vnoremap <C-Space> <Esc>gV
@@ -68,7 +71,7 @@ augroup END
 " ------------------------------------------------------------------------------
 " Function key mapping
 " ------------------------------------------------------------------------------
-map <F7> :echo 'Current time is ' . strftime('%c')<cr>
+"map <F7> :echo 'Current time is ' . strftime('%c')<cr>
 map <F3> <esc>:echo "EXIT" <bar> :q <cr>
 
 " ------------------------------------------------------------------------------

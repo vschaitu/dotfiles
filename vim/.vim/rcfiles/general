@@ -3,11 +3,24 @@
 " ------------------------------------------------------------------------------
 
 syntax on
+" Issue with TS files
+set re=0
 
 " Make it obvious where 80 characters is
-set textwidth=80
+"set textwidth=80
 "set colorcolumn=+1
+
+" Always dark
 set background=dark
+
+" Gruv settings
+colorscheme gruvbox
+let g:gruvbox_transparent_bg = 1
+let g:gruvbox_contrast_dark = 'hard'
+
+" oneHalf settings
+"colorscheme onehalfdark
+"let g:airline_theme='onehalflight'
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -22,9 +35,9 @@ set splitright
 "set diffopt+=vertical
 
 " floating windows
-highlight VertSplit guibg=NONE
-highlight NormalFloat guifg=#999999 guibg=#222222
-hi Pmenu guibg=#222222 guifg=#999999
+"highlight VertSplit guibg=NONE
+"highlight NormalFloat guifg=#999999 guibg=#222222
+"hi Pmenu guibg=#222222 guifg=#999999
 
 " ------------------------------------------------------------------------------
 " General Vim Settings
@@ -35,6 +48,8 @@ filetype plugin indent on
 set backspace=2      " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
+set undodir=~/.vim/undodir
+set undofile
 set noswapfile
 set history=50
 set ruler            " show the cursor position all the time
@@ -43,10 +58,12 @@ set incsearch        " do incremental searching
 set laststatus=2     " Always display the status line
 set autowrite        " Automatically :write before running commands
 "set formatoptions-=t " Don't auto-break long lines (re-enable this for prose)
+" Give more space for displaying messages.
+set cmdheight=2
 
 " Display relative line numbers, with absolute line number for current line
 set number
-set numberwidth=5
+"set numberwidth=5
 "set relativenumber
 
 " ------------------------------------------------------------------------------

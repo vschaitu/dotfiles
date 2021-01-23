@@ -1,0 +1,5 @@
+" Gruv
+
+Plug 'morhetz/gruvbox'
+
+" vim:ft=vim

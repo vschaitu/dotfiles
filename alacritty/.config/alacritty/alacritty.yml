@@ -1,8 +1,8 @@
 # Window Customization
 window:
   dimensions:
-    columns: 160
-    lines: 40
+    columns: 196
+    lines: 58
   padding:
     x: 16
     y: 16
@@ -19,11 +19,11 @@ window.dynamic_title: true
 # Font Customization
 font:
   normal:
-    family: MesloLGS NF
-    style: Regular
+    family: Fira Code
+    style: Light
   bold:
-    family: MesloLGS NF
-    style: Bold
+    family: Fira Code
+    style: SemiBold
   italic:
     family: MesloLGS NF
     style: Italic
@@ -41,49 +41,49 @@ font:
 draw_bold_text_with_bright_colors: false
 
 # Colors (One Dark)
-colors:
-  primary:
-    background: '#282c34'
-    foreground: '#abb2bf'
-  cursor:
-    text:       CellBackground
-    cursor:     '#ffffff' # syntax-cursor-color
-  selection:
-    text:       CellForeground
-    background: '#3e4451' # syntax-selection-color
-  normal:
-    black:      '#5c6370' # mono-3
-    red:        '#e06c75' # red 1
-    green:      '#98c379'
-    yellow:     '#e5c07b' # orange 2
-    blue:       '#61afef'
-    magenta:    '#c678dd'
-    cyan:       '#56b6c2'
-    white:      '#828997' # mono-2
-
-# Colors (Gruvbox dark)
 #colors:
 #  primary:
-#    background: '#282828'
-#    foreground: '#ebdbb2'
+#    background: '#282c34'
+#    foreground: '#abb2bf'
+#  cursor:
+#    text:       CellBackground
+#    cursor:     '#ffffff' # syntax-cursor-color
+#  selection:
+#    text:       CellForeground
+#    background: '#3e4451' # syntax-selection-color
 #  normal:
-#    black:   '#282828'
-#    red:     '#cc241d'
-#    green:   '#98971a'
-#    yellow:  '#d79921'
-#    blue:    '#458588'
-#    magenta: '#b16286'
-#    cyan:    '#689d6a'
-#    white:   '#a89984'
-#  bright:
-#    black:   '#928374'
-#    red:     '#fb4934'
-#    green:   '#b8bb26'
-#    yellow:  '#fabd2f'
-#    blue:    '#83a598'
-#    magenta: '#d3869b'
-#    cyan:    '#8ec07c'
-#    white:   '#ebdbb2'
+#    black:      '#5c6370' # mono-3
+#    red:        '#e06c75' # red 1
+#    green:      '#98c379'
+#    yellow:     '#e5c07b' # orange 2
+#    blue:       '#61afef'
+#    magenta:    '#c678dd'
+#    cyan:       '#56b6c2'
+#    white:      '#828997' # mono-2
+
+# Colors (Gruvbox dark)
+colors:
+  primary:
+    background: '#282828'
+    foreground: '#ebdbb2'
+  normal:
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+  bright:
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 
 # Colors (one half dark)
 #colors:
