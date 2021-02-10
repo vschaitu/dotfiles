@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Disable XON/XOFF flow control to free up <C-s> and <C-q> shortcuts in terminal
+# # By default <C-s> and <C-q> pause and resume the terminal output,
+# # but we might use them in a Vim or somewhere else, so let's unbind them
+# # NOTE: do this only for interactive shell
+# [[ $- == *i* ]] && stty -ixon
+
 # Pointing zplug directory
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -78,3 +84,29 @@ ensure_tmux_is_running() {
 }
 
 ensure_tmux_is_running
+
+# BAT
+alias cat="bat"
+
+# FZF
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# for fzf '**' shell completions.
+# - The first argument to the function ($1) is the base path to start traversal
+_fzf_compgen_path() {
+  command fd --hidden --follow --exclude .git --exclude node_modules . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  command fd --type d --hidden --follow --exclude .git --exclude node_modules . "$1"
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load user-defined aliases and functions
+for script in $DOTFILES/zsh/.zsh/scripts/*; do
+  source $script
+done
+
+#Unbind control tab
+bindkey -r "^^I"

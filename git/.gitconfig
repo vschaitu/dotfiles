@@ -3,3 +3,5 @@
 # Please adapt and uncomment the following lines:
 	name = SriChaitanya Vanapalli
 	email = vschaitu@gmail.com
+[core]
+	editor = vim

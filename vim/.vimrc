@@ -5,6 +5,7 @@
 " vim/rcfiles and vim/rcplugins
 
 set nocompatible
+set termguicolors
 
 " Need to set the leader before defining any leader mappings
 let mapleader = "\<Space>"

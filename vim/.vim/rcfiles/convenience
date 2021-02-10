@@ -3,14 +3,22 @@
 " ------------------------------------------------------------------------------
 
 " Move between wrapped lines, rather than jumping over wrapped segments
-nmap j gj
-nmap k gk
+"nmap j gj
+"nmap k gk
 
 " Quick escape from Insert mode by pressing 'jj'
 imap jj <esc>
 
 " Q for Ex mode is useless. This will run the macro in q register
 nnoremap Q @q
+
+" Paste to and from the clipboard in vim style
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+nnoremap <leader>y "+y
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+vnoremap <leader>y "+y
 
 " Use C-Space to Esc out of any mode
 "nnoremap <C-Space> <Esc>:noh<CR>
@@ -33,9 +41,6 @@ nnoremap <leader>so :source %<cr>
 "nnoremap <leader>df :Files ~/code/dotfiles<cr>
 "nnoremap <leader>; :
 "nmap <leader>bi :PlugInstall<cr>
-
-" Q for Ex mode is useless. This will run the macro in q register
-"nnoremap Q @q
 
 " Always have problem with Shift + Q / E
 command! Q q
@@ -68,6 +73,20 @@ augroup vimrcEx
     \ endif
 augroup END
 
+" ------------------------------------------------------------------------------
+" Autoreload file when changed and display message
+" ------------------------------------------------------------------------------
+set autoread
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+  \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 " ------------------------------------------------------------------------------
 " Function key mapping
 " ------------------------------------------------------------------------------
@@ -102,6 +121,6 @@ nnoremap <leader>w9 :tablast<cr>
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
-" autocmd VimResized * GoldenRatioResize
+"autocmd VimResized * GoldenRatioResize
 
 " vim:ft=vim

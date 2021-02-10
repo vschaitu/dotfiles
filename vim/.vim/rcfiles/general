@@ -2,10 +2,6 @@
 " Visual settings
 " ------------------------------------------------------------------------------
 
-syntax on
-" Issue with TS files
-set re=0
-
 " Make it obvious where 80 characters is
 "set textwidth=80
 "set colorcolumn=+1
@@ -14,13 +10,21 @@ set re=0
 set background=dark
 
 " Gruv settings
-colorscheme gruvbox
-let g:gruvbox_transparent_bg = 1
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_transparent_bg = 1
+"let g:gruvbox_contrast_dark = 'hard'
+"colorscheme gruvbox
+
+" Gruv Material
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
 " oneHalf settings
 "colorscheme onehalfdark
 "let g:airline_theme='onehalflight'
+
+
+" Zenburn to keep my eyes clean
+"colorscheme zenburn
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -34,6 +38,9 @@ set splitright
 "set diffopt+=iwhite
 "set diffopt+=vertical
 
+" No wrap
+set nowrap
+
 " floating windows
 "highlight VertSplit guibg=NONE
 "highlight NormalFloat guifg=#999999 guibg=#222222
@@ -42,6 +49,10 @@ set splitright
 " ------------------------------------------------------------------------------
 " General Vim Settings
 " ------------------------------------------------------------------------------
+
+syntax on
+" Issue with TS files
+set re=0
 
 filetype plugin indent on
 
@@ -64,7 +75,7 @@ set cmdheight=2
 " Display relative line numbers, with absolute line number for current line
 set number
 "set numberwidth=5
-"set relativenumber
+set relativenumber
 
 " ------------------------------------------------------------------------------
 " Softtabs, 2 spaces
