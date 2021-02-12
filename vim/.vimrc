@@ -7,6 +7,9 @@
 set nocompatible
 set termguicolors
 
+" The below line to avoid delay after pressing escape key
+set timeoutlen=1000 ttimeoutlen=0
+
 " Need to set the leader before defining any leader mappings
 let mapleader = "\<Space>"
 
