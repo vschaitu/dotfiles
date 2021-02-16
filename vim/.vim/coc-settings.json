@@ -3,7 +3,7 @@
   "coc.preferences.hoverTarget": "float",
   "diagnostic.refreshOnInsertMode": true,
   "suggest.floatEnable": true,
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.enablePreview": true,
   "suggest.enablePreselect": true,
@@ -34,6 +34,7 @@
   "prettier.singleQuote": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.file.showHiddenFiles": true,
+  "explorer.git.showIgnored": true,
   "explorer.position": "right",
   "explorer.keyMappings.global": {
     "l": ["wait", "expandable?", "expand", ""]
