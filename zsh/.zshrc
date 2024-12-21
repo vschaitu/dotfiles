@@ -55,35 +55,39 @@ function g {
   fi
 }
 
+alias ga="git add ."
+alias gc="git commit"
+alias gp="git push"
+
 # Tmux 
-_tmux_orientation() {
-  width=$(tmux display -p '#{pane_width}')
-  height=$(tmux display -p '#{pane_height}')
-  normalized_height=$( echo "$height * 2.2" | bc | xargs printf "%.0f")
+#_tmux_orientation() {
+#  width=$(tmux display -p '#{pane_width}')
+#  height=$(tmux display -p '#{pane_height}')
+#  normalized_height=$( echo "$height * 2.2" | bc | xargs printf "%.0f")
 
-  if (( normalized_height > width )); then
-    echo 'portrait'
-  else
-    echo 'landscape'
-  fi
-}
+#  if (( normalized_height > width )); then
+#    echo 'portrait'
+#  else
+#    echo 'landscape'
+#  fi
+#}
 
-tmux-smart-pane() {
-  [[ $(_tmux_orientation) = 'portrait' ]] && orient='-v' || orient='-h'
-  eval "tmux split-window $orient $@"
-}
+#tmux-smart-pane() {
+#  [[ $(_tmux_orientation) = 'portrait' ]] && orient='-v' || orient='-h'
+#  eval "tmux split-window $orient $@"
+#}
 
-_not_inside_tmux() {
-  [[ -z "$TMUX" ]]
-}
+#_not_inside_tmux() {
+#  [[ -z "$TMUX" ]]
+#}
 
-ensure_tmux_is_running() {
-  if _not_inside_tmux; then
-    tat
-  fi
-}
+#ensure_tmux_is_running() {
+#  if _not_inside_tmux; then
+#    tat
+#  fi
+#}
 
-ensure_tmux_is_running
+#ensure_tmux_is_running
 
 # BAT
 alias cat="bat"
@@ -109,4 +113,6 @@ for script in $DOTFILES/zsh/.zsh/scripts/*; do
 done
 
 #Unbind control tab
-bindkey -r "^^I"
+#bindkey -r "^^I"
+
+export PATH=$PATH:/Users/srichaitanyavanapalli/CLife/Workshop/my-scripts
