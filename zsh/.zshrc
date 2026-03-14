@@ -116,3 +116,5 @@ done
 #bindkey -r "^^I"
 
 export PATH=$PATH:/Users/srichaitanyavanapalli/CLife/Workshop/my-scripts
+export M2_HOME=/usr/local/apache-maven-3.8.8
+export PATH=$PATH:$M2_HOME/bin
